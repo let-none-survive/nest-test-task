@@ -26,7 +26,7 @@ class ReservationEntity {
 
   @ManyToOne((type) => HotelRooms, (room) => room.id)
   @JoinColumn({ name: 'room_id' })
-  room: HotelRooms;
+  public room: HotelRooms;
 }
 
 export default ReservationEntity;

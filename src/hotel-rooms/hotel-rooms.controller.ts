@@ -1,5 +1,6 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Query } from '@nestjs/common';
 import { AddRoomDto } from 'src/hotel-rooms/dto/add-room.dto';
+import { GetAvailableRoomsDto } from 'src/hotel-rooms/dto/get-available-rooms.dto';
 import HotelRooms from 'src/hotel-rooms/hotel-room.entity';
 import { HotelRoomsService } from 'src/hotel-rooms/hotel-rooms.service';
 
@@ -8,8 +9,10 @@ export class HotelRoomsController {
   constructor(private readonly hotelRoomsService: HotelRoomsService) {}
 
   @Get()
-  getAvailableRooms(): Promise<[HotelRooms[], number]> {
-    return this.hotelRoomsService.getAvailableRooms();
+  getAvailableRooms(
+    @Query() data: GetAvailableRoomsDto,
+  ): Promise<[HotelRooms[], number]> {
+    return this.hotelRoomsService.getAvailableRooms(data);
   }
 
   @Post()
