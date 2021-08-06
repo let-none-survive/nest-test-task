@@ -47,6 +47,8 @@ $ npm run start:prod
 
 ## Mock Data
 
+Swagger is available by this [link](http://localhost:3000/api)
+
 Run swagger [endpoint](http://localhost:3000/api/#/default/HotelRoomsController_addTenRandomRooms) to fill mock data.
 
 ## Test
